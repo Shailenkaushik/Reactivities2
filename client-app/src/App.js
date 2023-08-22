@@ -16,6 +16,7 @@ function App() {
     <div className="App">
       {/* <header className="App-header"> */}
        <Header as='h2' icon='users' content='Reactivities' ></Header>
+       <p> I an very good at this</p>
         <img src={logo} className="App-logo" alt="logo" />
         <ul>
           {activities.map(activity=>(
