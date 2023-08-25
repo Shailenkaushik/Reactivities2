@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image,Card, Icon, Button, } from 'semantic-ui-react'
+import { Image,Card, Button, } from 'semantic-ui-react'
 
 export default function ActivityDetails(props) {
     return (
@@ -17,8 +17,8 @@ export default function ActivityDetails(props) {
                 </Card.Content>
                 <Card.Content extra>
                     <Button.Group widths='2'>
-                        <Button basic color='blue' content='Edit'></Button>
-                        <Button basic color='grey' content='Cancel'></Button>
+                        <Button onClick={()=>props.openForm(props.activity.actId)} basic color='blue' content='Edit'></Button>
+                        <Button onClick={props.cancelSelectActivity} basic color='grey' content='Cancel'></Button>
                     </Button.Group>
                 </Card.Content>
             </Card>
