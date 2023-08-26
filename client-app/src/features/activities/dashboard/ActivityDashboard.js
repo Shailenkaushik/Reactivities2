@@ -9,7 +9,7 @@ export default function ActivityDashboard(props) {
         <div>
             <Grid>
                 <Grid.Column width='10'>
-                   <ActivityList activities={props.activities} selectActivity={props.selectActivity} deleteActivity={props.deleteActivity} ></ActivityList>
+                   <ActivityList activities={props.activities} selectActivity={props.selectActivity} deleteActivity={props.deleteActivity} submitting={props.submitting} ></ActivityList>
                 </Grid.Column>
                 <Grid.Column width='6'>
                 {props.selectedActivity && !props.editMode &&
@@ -18,7 +18,7 @@ export default function ActivityDashboard(props) {
                        openForm={props.openForm}  
                          ></ActivityDetails>}
                 {props.editMode && 
-                   <ActivityForm  closeForm={props.closeForm} activity={props.selectedActivity} createOrEdit={props.createOrEdit} ></ActivityForm>}
+                   <ActivityForm submitting={props.submitting}  closeForm={props.closeForm} activity={props.selectedActivity} createOrEdit={props.createOrEdit} ></ActivityForm>}
               </Grid.Column>
             </Grid>
               

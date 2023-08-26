@@ -1,10 +1,14 @@
 import React from 'react'
-
+import { useState } from 'react';
 import { Button, Item, Label, Segment } from 'semantic-ui-react'
 
 export default function ActivityList(props) {
 
- 
+ const [target,setTarget]=useState('');
+ function handleActivityDelete(e,id){
+    setTarget(e.target.name);
+    props.deleteActivity(id);
+ }
 
     return (
         <>
@@ -21,7 +25,7 @@ export default function ActivityList(props) {
                               </Item.Description>
                                <Item.Extra>
                                      <Button onClick={()=>props.selectActivity(activity.actId)}  floated='right' content='view' color='blue'></Button>
-                                     <Button onClick={()=>props.deleteActivity(activity.actId)}  floated='right' content='Delete' color='red'></Button>
+                                     <Button name={activity.actId} loading={props.submitting && target===activity.actId} onClick={(e)=>handleActivityDelete(e,activity.actId)}  floated='right' content='Delete' color='red'></Button>
                                      <Label basic content={activity.category}></Label>
                                </Item.Extra>
                          </Item.Content>

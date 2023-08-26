@@ -60,7 +60,7 @@ public class TestController : ControllerBase
      return _dapper.LoadData<Activity>(sql);   
    }
 
-   [HttpDelete("DeleteUsers")]
+   [HttpDelete("DeleteUsers/{ActId}")]
 
    public bool DeleteUsers(int ActId){
     string sql=@"Delete from RETRYSCHEMA.ACTIVITY WHERE ACTID="+@ActId;
